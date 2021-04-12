@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/AyushSaini00/ben10-API/issues"
   },
-  "homepage": "https://github.com/AyushSaini00/ben10-API#readme"
+  "homepage": "https://github.com/AyushSaini00/ben10-API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
