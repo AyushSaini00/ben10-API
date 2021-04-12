@@ -1,0 +1,25 @@
+{
+  "name": "ben10-api",
+  "version": "0.0.1",
+  "description": "Ben 10 API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyushSaini00/ben10-API.git"
+  },
+  "keywords": [
+    "ben10",
+    "api",
+    "node",
+    "rest"
+  ],
+  "author": "Ayush Saini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AyushSaini00/ben10-API/issues"
+  },
+  "homepage": "https://github.com/AyushSaini00/ben10-API#readme"
+}
