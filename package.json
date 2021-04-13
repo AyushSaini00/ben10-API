@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/AyushSaini00/ben10-API#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
   }
 }
