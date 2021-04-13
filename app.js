@@ -5,6 +5,8 @@ const app = express();
 const aliensRoutes = require('./api/routes/aliens');
 
 app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 app.use('/aliens', aliensRoutes);
 

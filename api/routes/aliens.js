@@ -8,8 +8,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    const alien = {
+        name: req.body.name,
+        power: req.body.power
+    };
     res.status(200).json({
-        message: 'Handling POST requests to /aliens'
+        message: 'Handling POST requests to /aliens',
+        createdAlien: alien
     });
 });
 
