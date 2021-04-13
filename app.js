@@ -1,8 +1,20 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const mongoose = require('mongoose');
 
 const aliensRoutes = require('./api/routes/aliens');
+
+const uri = 'mongodb+srv://ben10-api:' + 
+            process.env.MONGO_ATLAS_PW +
+            '@ben10-api.qmt7m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+mongoose.connect(
+    uri,
+    { 
+        useNewUrlParser: true, 
+        useUnifiedTopology: true 
+    }
+);
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
@@ -25,6 +37,7 @@ app.use((req, res, next) => {
         );
         return res.status(200).json({});
     }
+    next();
 });
 
 app.use('/aliens', aliensRoutes);
