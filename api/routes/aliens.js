@@ -6,19 +6,25 @@ const Alien = require('../models/alien');
 
 router.get('/', (req, res, next) => {
     Alien.find()
-        .select('name power _id') // only fetch these
+        .select('-__v') // fetch everything except __v
         .exec()
         .then(docs => {
             const response = {
                 count: docs.length,
                 aliens: docs.map(doc => {
                     return {
-                        name: doc.name,
-                        price: doc.price,
                         _id: doc._id,
+                        general: {
+                            name: doc.general.name,
+                            species: doc.general.species,
+                            homeWorld: doc.general.homeWorld,
+                            body: doc.general.body
+                        },
+                        series: doc.series,
+                        abilities: doc.abilities,
                         request: {
                             type: 'GET',
-                            url: 'http://localhost:3000/' + doc._id
+                            url: 'http://localhost:3000/aliens/' + doc._id
                         }
                     }
                 })
@@ -36,8 +42,14 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const alien = new Alien({
         _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        power: req.body.power
+        general: {
+            name: req.body.general.name,
+            species: req.body.general.species,
+            homeWorld: req.body.general.homeWorld,
+            body: req.body.general.body
+        },
+        series: req.body.series,
+        abilities: req.body.abilities
     });
     alien.save()
     .then(result => {
@@ -45,12 +57,18 @@ router.post('/', (req, res, next) => {
         res.status(200).json({
             message: 'Alien Created Successfully',
             createdAlien: {
-                name: result.name,
-                price: result.price,
                 _id: result._id,
+                general: {
+                    name: result.general.name,
+                    species: result.general.species,
+                    homeWorld: result.general.homeWorld,
+                    body: result.general.body
+                },
+                series: result.series,
+                abilities: result.abilities,
                 request: {
                     type: 'GET',
-                    url: 'http://localhost:3000/' + result._id
+                    url: 'http://localhost:3000/aliens/' + result._id
                 }
             }
         });
@@ -66,7 +84,7 @@ router.post('/', (req, res, next) => {
 router.get("/:alienId", (req, res, next) => {
     const id = req.params.alienId;
     Alien.findById(id)
-        .select('name power _id')
+        .select('-__v')
         .exec()
         .then(doc => {
             console.log("from database",doc);
@@ -125,7 +143,7 @@ router.delete('/:alienId', (req, res, next) => {
                 request: {
                     type: 'POST',
                     url: 'http://localhost:3000/aliens',
-                    body: { name: 'String', power: 'Number' }
+                    body: { name: 'String'}
                 }
             });
         })
