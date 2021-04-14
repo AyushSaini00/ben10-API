@@ -1,0 +1,72 @@
+{
+    "count": "2",
+    "aliens": [
+        {
+            "_id": "6077130160aa2888f4b78103",
+            "general": {
+                "name": "Four Arms",
+                "species": "Tetramand",
+                "homeWorld": "Khoros",
+                "body": "Four-Armed Humanoid"
+            },
+            "series": "classic",
+            "abilities": [
+                "Enhanced Strength",
+                "Enhanced Durability",
+                "Enhanced Agility",
+                "Enhanced Speed",
+                "Enhanced Reflexes",
+                "Enhanced Jumping",
+                "Enhanced Acrobatics",
+                "Wrestling Proficiency",
+                "Strong/Sharp Teeth",
+                "Sonic Clap",
+                "Shock Waves",
+                "Earthquake Generation",
+                "Wall Climbing",
+                "Heat Resistance",
+                "Gas Immunity",
+                "Slime Spit (via cold virus)"
+            ]
+        },
+        {
+            "_id": "6076e4fdc90bbd9294a7a3a0",
+            "general": {
+                "name": "Diamondhead",
+                "species": "Petrosapien",
+                "homeWorld": "Petropia",
+                "body": "Crystalline Humanoid"
+            },
+            "series": "classic",
+            "abilities": [
+                "Crystallokinesis",
+                "Crystalline Constructs",
+                "Crystal Shard Projectiles",
+                "Sharp Back Shards",
+                "Metamorphic Arms",
+                "Weapon Manifestation",
+                "Regeneration",
+                "Body Alteration",
+                "Energy Refraction",
+                "Energy Absorption",
+                "Energy Redirection",
+                "Aging Immunity",
+                "Decay Immunity",
+                "Time Ray Immunity",
+                "Acid Immunity",
+                "Heat Resistance",
+                "Space Survivability",
+                "Enhanced Strength",
+                "Enhanced Durability",
+                "Crystal Board Surfing",
+                "Crystallization",
+                "Enhanced Dexterity",
+                "Enhanced Jumping",
+                "Enhanced Digging",
+                "Enhanced Reflexes",
+                "Enhanced Acrobatics",
+                "Crystal Spit (via cold virus)"
+            ]
+        }
+    ]
+}
