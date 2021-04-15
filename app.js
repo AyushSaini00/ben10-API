@@ -5,9 +5,7 @@ const mongoose = require('mongoose');
 
 const aliensRoutes = require('./api/routes/aliens');
 
-const uri = 'mongodb+srv://ben10-api:' + 
-            process.env.MONGO_ATLAS_PW +
-            '@ben10-api.qmt7m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const uri = process.env.MONGO_ATLAS_URI;
 mongoose.connect(
     uri,
     { 
