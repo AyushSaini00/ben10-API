@@ -93,7 +93,7 @@ router.get("/:alienId", (req, res, next) => {
                     alien: doc,
                     request: {
                         type: 'GET',
-                        url: 'http://localhost:3000/aliens'
+                        url: 'http://localhost:3000/aliens' + id
                     }
                 });
             } else {
