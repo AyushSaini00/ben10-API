@@ -2,7 +2,7 @@
   "name": "ben10-api",
   "version": "0.0.1",
   "description": "Ben 10 API",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
