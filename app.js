@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const aliensRoutes = require('./api/routes/aliens');
+const userRoutes = require('./api/routes/user');
 
 const uri = process.env.MONGO_ATLAS_URI;
 mongoose.connect(
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/aliens', aliensRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
