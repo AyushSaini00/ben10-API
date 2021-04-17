@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const checkAuth = require('../middleware/check-auth');
 
 const Alien = require('../models/alien');
 
-router.get('/', (req, res, next) => {
+router.get('/', checkAuth, (req, res, next) => {
     Alien.find()
         .select('-__v') // fetch everything except __v
         .exec()
@@ -39,7 +40,7 @@ router.get('/', (req, res, next) => {
         });
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', checkAuth, (req, res, next) => {
     const alien = new Alien({
         _id: new mongoose.Types.ObjectId(),
         general: {
@@ -81,7 +82,7 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.get("/:alienId", (req, res, next) => {
+router.get("/:alienId", checkAuth, (req, res, next) => {
     const id = req.params.alienId;
     Alien.findById(id)
         .select('-__v')
@@ -108,7 +109,7 @@ router.get("/:alienId", (req, res, next) => {
         });
 });
 
-router.patch('/:alienId', (req, res, next) => {
+router.patch('/:alienId', checkAuth, (req, res, next) => {
     const id = req.params.alienId;
     const updateOps = {};
     for (const ops of req.body) {
@@ -133,9 +134,9 @@ router.patch('/:alienId', (req, res, next) => {
         });
 });
 
-router.delete('/:alienId', (req, res, next) => {
+router.delete('/:alienId', checkAuth, (req, res, next) => {
     const id = req.params.alienId;
-    Alien.remove({ _id: id })
+    Alien.deleteOne({ _id: id })
         .exec()
         .then(result => {
             res.status(200).json({
