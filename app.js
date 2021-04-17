@@ -39,6 +39,11 @@ app.use((req, res, next) => {
     next();
 });
 
+// redirect the root URL to given link
+// app.get('/', (req, res) => {
+//     res.redirect('landing page url')
+// });
+
 app.use('/aliens', aliensRoutes);
 app.use('/user', userRoutes);
 
