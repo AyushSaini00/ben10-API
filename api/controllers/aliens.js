@@ -1,5 +1,6 @@
 const Alien = require('../models/alien');
 const mongoose = require('mongoose');
+const baseURL = 'https://ben10-api.herokuapp.com/';
 
 exports.aliens_get_all = (req, res, next) => {
     Alien.find()
@@ -21,7 +22,7 @@ exports.aliens_get_all = (req, res, next) => {
                         abilities: doc.abilities,
                         request: {
                             type: 'GET',
-                            url: 'http://localhost:3000/aliens/' + doc._id
+                            url: baseURL + doc._id
                         }
                     }
                 })
@@ -65,7 +66,7 @@ exports.aliens_create_alien = (req, res, next) => {
                 abilities: result.abilities,
                 request: {
                     type: 'GET',
-                    url: 'http://localhost:3000/aliens/' + result._id
+                    url: baseURL + '/aliens/' + result._id
                 }
             }
         });
@@ -90,7 +91,7 @@ exports.aliens_get_by_id = (req, res, next) => {
                     alien: doc,
                     request: {
                         type: 'GET',
-                        url: 'http://localhost:3000/aliens' + id
+                        url: baseURL + '/aliens/' + id
                     }
                 });
             } else {
@@ -118,7 +119,7 @@ exports.aliens_patch_by_id = (req, res, next) => {
                 message: 'Alien Updated',
                 request: {
                     type: 'GET',
-                    url: 'http://localhost:3000/aliens/' + id
+                    url: baseURL + '/aliens/' + id
                 }
             });
         })
@@ -139,7 +140,7 @@ exports.aliens_delete_by_id = (req, res, next) => {
                 message: 'Alien Deleted',
                 request: {
                     type: 'POST',
-                    url: 'http://localhost:3000/aliens',
+                    url: baseURL + '/aliens',
                     body: { name: 'String'}
                 }
             });
@@ -150,5 +151,4 @@ exports.aliens_delete_by_id = (req, res, next) => {
                 error: err
             });
         });
-
 }
